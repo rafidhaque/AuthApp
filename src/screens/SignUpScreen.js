@@ -35,7 +35,14 @@ function SignUpScreen(props) {
                     type = 'solid'
                 />
 
-                
+                <Button
+                    type='clear'
+                    icon={<AntDesign name="user" size={24} color="dodgerblue" />}
+                    title="Already have an account?"
+                    onPress= {function () {
+                        props.navigation.navigate("SignInScreen")
+                    }}
+                />
             </Card>
         </View>
     )
