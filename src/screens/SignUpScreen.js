@@ -27,6 +27,7 @@ function SignUpScreen(props) {
                 <Input
                     placeholder='Password'
                     leftIcon={<FontAwesome5 name="key" size={24} color="black" />}
+                    secureTextEntry={true}
                 />
 
                 <Button
