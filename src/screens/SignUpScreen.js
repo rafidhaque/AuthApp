@@ -34,6 +34,9 @@ function SignUpScreen(props) {
                     icon = {<AntDesign name="login" size={24} color="white" />}
                     title = '  Sign Up'
                     type = 'solid'
+                    onPress= {function () {
+                        props.navigation.navigate("SignInScreen")
+                    }}
                 />
 
                 <Button
