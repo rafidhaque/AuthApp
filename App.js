@@ -1,21 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native'
+import { createStackNavigator } from "@react-navigation/stack"
 
-export default function App() {
+import HomeScreen from './src/screens/HomeScreen.js'
+import SignUpScreen from './src/screens/SignUpScreen.js'
+import SignInScreen from './src/screens/SignInScreen.js'
+
+const HomeStack = createStackNavigator();
+const AuthStack = createStackNavigator();
+
+function HomeStackScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <HomeStack.Navigator initialRouteName='Home'>
+        <HomeStack.Screen name='Home' component={HomeScreen} />
+    </HomeStack.Navigator>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function AuthStatckScreen() {
+  return (
+    <AuthStack.Navigator initialRouteName='SignInScreen'>
+      <AuthStack.Screen
+        name = "SignInScreen" 
+        options = {{headerShown:false}}
+        component={SignInScreen}
+      />
+      <AuthStack.Screen
+        name = "SignUpScreen" 
+        options = {{headerShown:false}}
+        component={SignUpScreen}
+      />
+    </AuthStack.Navigator>
+  )
+}
+
+function App() {
+  return(
+    <NavigationContainer>
+        <AuthStatckScreen/>
+    </NavigationContainer>
+  )
+}
+
+export default App;
