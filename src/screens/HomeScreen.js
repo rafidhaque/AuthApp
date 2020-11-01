@@ -1,11 +1,27 @@
 import React, {useState} from 'react'
-import {Button, View, TextInput, StyleSheet, Text, Switch} from 'react-native'
+import { View, TextInput, StyleSheet, Text, Switch} from 'react-native'
+import {AuthContext} from "../provider/AuthProvider"
+import { Button } from 'react-native-elements'
+import { useLinkProps } from '@react-navigation/native'
 
 function HomeScreen() {
     return (
-        <View>
-            <Text>Welcome to HomeScreen</Text>
-        </View>
+        <AuthContext.Consumer>
+            {(auth) => (
+                <View>
+                    <Text>Welcome to HomeScreen</Text>
+                    <Button
+                        type = 'outline'
+                        title = 'logout!'
+                        onPress = {
+                            function () {
+                                auth.isLoggedIn(false);
+                            }
+                        }
+                    />
+                </View>
+            )}
+        </AuthContext.Consumer>
     )
 }
 

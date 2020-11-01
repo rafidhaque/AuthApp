@@ -6,6 +6,8 @@ import HomeScreen from './src/screens/HomeScreen.js'
 import SignUpScreen from './src/screens/SignUpScreen.js'
 import SignInScreen from './src/screens/SignInScreen.js'
 
+import {AuthContext, AuthProvider} from './src/provider/AuthProvider.js '
+
 const HomeStack = createStackNavigator();
 const AuthStack = createStackNavigator();
 
@@ -36,9 +38,15 @@ function AuthStatckScreen() {
 
 function App() {
   return(
-    <NavigationContainer>
-        <AuthStatckScreen/>
-    </NavigationContainer>
+    <AuthProvider>
+      <AuthProvider.Consumer>
+
+        {(auth) => (<NavigationContainer>
+          {auth.IsloggedIn?<AuthStatckScreen/>:<AuthStatckScreen/>}
+        </NavigationContainer>}
+      
+      </AuthProvider.Consumer>
+    </AuthProvider>
   )
 }
 
