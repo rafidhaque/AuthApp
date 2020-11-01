@@ -1,8 +1,10 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native'
 import { createStackNavigator } from "@react-navigation/stack"
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 
 import HomeScreen from './src/screens/HomeScreen.js'
+import NotificationScreen from './src/screens/NotificationScreen.js'
 import SignUpScreen from './src/screens/SignUpScreen.js'
 import SignInScreen from './src/screens/SignInScreen.js'
 
@@ -10,14 +12,7 @@ import {AuthContext, AuthProvider} from './src/provider/AuthProvider'
 
 const HomeStack = createStackNavigator();
 const AuthStack = createStackNavigator();
-
-function HomeStackScreen() {
-  return (
-    <HomeStack.Navigator initialRouteName='Home'>
-        <HomeStack.Screen name='Home' component={HomeScreen} />
-    </HomeStack.Navigator>
-  )
-}
+const HomeTab = createMaterialBottomTabNavigator()
 
 function AuthStatckScreen() {
   return (
@@ -33,6 +28,16 @@ function AuthStatckScreen() {
         component={SignUpScreen}
       />
     </AuthStack.Navigator>
+  )
+}
+
+function HomeTabScreen() {
+  return (
+    <HomeTab.Navigation>
+      <HomeTab.Screen name="Home" component={HomeScreen}
+      />
+      <HomeTab.Screen name='Notification' component={NotificationScreen} />
+    </HomeTab.Navigation>
   )
 }
 
