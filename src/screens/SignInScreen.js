@@ -38,19 +38,18 @@ function SignInScreen(props) {
                             icon = {<AntDesign name="login" size={24} color="white" />}
                             title = '  Sign In'
                             type = 'solid'
-                            onPress = {
-                                function () {
-                                    getDataJSON(Email).then((UserData)=>{
-                                        if (UserData.Password == Password) {
-                                            auth.setIsLoggedIn(true)
-                                            auth.setCurrentUser(UserData)
+                            onPress=
+                                {  function () {
+                                        let UserData =  getDataJSON(Email);
+                                        console.log(UserData.Password)
+                                        if ( UserData.password == Password) {
+                                            auth.setIsLoggedIn(true);
+                                            auth.setCurrentUser(UserData);
                                         } else {
-                                            alert("LOGIN FAILED")
+                                            alert("Login Failed");
                                         }
-                                        console.log(UserData)
-                                    })
-                                    
-                            }}
+                                    }
+                                }
                         />
 
                         <Button
