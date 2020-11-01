@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {View, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
 import { Button, Input, Card} from "react-native-elements"
 import { MaterialCommunityIcons, FontAwesome5, AntDesign } from '@expo/vector-icons';
 
@@ -17,6 +17,7 @@ function SignInScreen(props) {
                 <Input
                     placeholder='Password'
                     leftIcon={<FontAwesome5 name="key" size={24} color="black" />}
+                    secureTextEntry={true}
                 />
 
                 <Button
@@ -29,8 +30,9 @@ function SignInScreen(props) {
                     type='clear'
                     icon={<AntDesign name="user" size={24} color="dodgerblue" />}
                     title="Don't have an account?"
-                    
-                    background='white'
+                    onPress= {function () {
+                        props.navigation.navigate("SignUpScreen")
+                    }}
                 />
             </Card>
         </View>

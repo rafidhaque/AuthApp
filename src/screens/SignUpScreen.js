@@ -1,24 +1,50 @@
 import React, {useState} from 'react'
-import {Button, View, TextInput, StyleSheet, Text, Switch} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
+import { Button, Input, Card} from "react-native-elements"
+import { MaterialCommunityIcons, FontAwesome5, AntDesign } from '@expo/vector-icons';
 
 function SignUpScreen(props) {
     return (
-        <View>
-            <Text>Welcome to HomeScreen</Text>
-            <Button
-                title='Sign In!'
-                onPress = {function () {
-                    props.navigation.navigate("SignInScreen");
-                }}
-            />
+        <View style={styles.viewStyle}>
+            <Card>
+                <Card.Title>SignUp to AuthApp!</Card.Title>
+                <Card.Divider/>
+                <Input 
+                    placeholder='E-mail Address'
+                    leftIcon={<MaterialCommunityIcons name="email-edit" size={24} color="black" />}
+                />
+
+                <Input 
+                    placeholder='Name'
+                    leftIcon={<MaterialCommunityIcons name="rename-box" size={24} color="black" />}
+                />
+
+                <Input 
+                    placeholder='Student ID'
+                    leftIcon={<AntDesign name="idcard" size={24} color="black" />}
+                />
+
+                <Input
+                    placeholder='Password'
+                    leftIcon={<FontAwesome5 name="key" size={24} color="black" />}
+                />
+
+                <Button
+                    icon = {<AntDesign name="login" size={24} color="white" />}
+                    title = '  Sign Up'
+                    type = 'solid'
+                />
+
+                
+            </Card>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    textStyle: {
-        fontSize: 30,
-        color: 'blue',
+    viewStyle: {
+        flex: 1,
+        justifyContent: 'center'
     },
 })
 
