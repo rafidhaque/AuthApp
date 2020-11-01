@@ -40,14 +40,16 @@ function SignInScreen(props) {
                             type = 'solid'
                             onPress = {
                                 function () {
-                                    let UserData = getDataJSON(Email);
-                                    if (UserData.password == Password) {
-                                        auth.setIsLoggedIn(true)
-                                        auth.setCurrentUser(UserData)
-                                    } else {
-                                        alert("LOGIN FAILED")
-                                    }
-                                    console.log(UserData)
+                                    getDataJSON(Email).then((UserData)=>{
+                                        if (UserData.Password == Password) {
+                                            auth.setIsLoggedIn(true)
+                                            auth.setCurrentUser(UserData)
+                                        } else {
+                                            alert("LOGIN FAILED")
+                                        }
+                                        console.log(UserData)
+                                    })
+                                    
                             }}
                         />
 

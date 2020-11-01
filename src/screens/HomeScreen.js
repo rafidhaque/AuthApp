@@ -8,13 +8,14 @@ function HomeScreen() {
         <AuthContext.Consumer>
             {(auth) => (
                 <View>
-                    <Text>Welcome to HomeScreen</Text>
+                    <Text>Welcome {auth.CurrentUser.name}</Text>
                     <Button
                         type = 'outline'
                         title = 'logout!'
                         onPress = {
                             function () {
                                 auth.setIsLoggedIn(false);
+                                auth.setCurrentUser({});
                             }
                         }
                     />
