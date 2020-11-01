@@ -29,7 +29,7 @@ function SignInScreen(props) {
                             type = 'solid'
                             onPress = {
                                 function () {
-                                    auth.setIsloggedIn(true)
+                                    auth.setIsLoggedIn(true)
                             }}
                         />
 

@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { View, TextInput, StyleSheet, Text, Switch} from 'react-native'
 import {AuthContext} from "../provider/AuthProvider"
 import { Button } from 'react-native-elements'
-import { useLinkProps } from '@react-navigation/native'
 
 function HomeScreen() {
     return (
@@ -15,7 +14,7 @@ function HomeScreen() {
                         title = 'logout!'
                         onPress = {
                             function () {
-                                auth.isLoggedIn(false);
+                                auth.setIsLoggedIn(false);
                             }
                         }
                     />
